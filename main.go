@@ -61,7 +61,7 @@ func main() {
 	}
 	
 	fmt.Println(fmt.Sprintf("Compiled env variables: %v",mapResult["env_variables"]))
-	fmt.Println("Edited env: ", envEdited)
+	fmt.Println(fmt.Sprintf("Edited env: %v", envEdited))
 
 	out, err := yaml.Marshal(mapResult)
 	// write the whole body at once
