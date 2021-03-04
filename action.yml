@@ -1,5 +1,5 @@
-name: 'GAE environment variable compiler'
-description: 'Compiles and swaps environment variables in app.yaml with the minimal effort'
+name: 'GAE environment variable compiler with dynamic *.yaml'
+description: 'Compiles and swaps environment variables in *.yaml with the minimal effort'
 branding:
   icon: 'cloud'
   color: 'blue'
