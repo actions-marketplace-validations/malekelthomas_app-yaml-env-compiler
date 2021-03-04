@@ -40,13 +40,14 @@ func main() {
 			switch val.Type().Kind() {
 			case reflect.Map:
 				envMap := any.(map[interface{}]interface{})
+				fmt.Println("Printing map", envMap)
 				for in, iv := range envMap {
 
 					envName := in.(string)
 					envVal := iv.(string)
 
 					env := strings.Replace(strings.TrimSpace(envVal), "$", "", -1)
-					fmt.Println(env)
+					fmt.Println("env", env)
 					envMap[envName] = os.Getenv(env)
 				}
 			default:
