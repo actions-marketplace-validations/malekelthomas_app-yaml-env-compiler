@@ -46,6 +46,7 @@ func main() {
 					envVal := iv.(string)
 
 					env := strings.Replace(strings.TrimSpace(envVal), "$", "", -1)
+					fmt.Println(env)
 					envMap[envName] = os.Getenv(env)
 				}
 			default:
