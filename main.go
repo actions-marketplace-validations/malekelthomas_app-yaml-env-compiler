@@ -28,7 +28,8 @@ func main() {
 	}
 	
 	fmt.Println(fmt.Sprintf("Env variables will be replaced: %v",mapResult["env_variables"]))
-
+	
+	var envEdited string
 	for k, any := range mapResult {
 		if k == "env_variables" {
 			err := checkIsPointer(&any)
@@ -47,6 +48,9 @@ func main() {
 					envVal := iv.(string)
 
 					env := strings.Replace(strings.TrimSpace(envVal), "$", "", -1)
+					if envName == "DEVELOP_STRIPE_ID"{
+						envEdited = envName
+					}
 					fmt.Println("env", env)
 					envMap[envName] = os.Getenv(env)
 				}
@@ -57,6 +61,7 @@ func main() {
 	}
 	
 	fmt.Println(fmt.Sprintf("Compiled env variables: %v",mapResult["env_variables"]))
+	fmt.Println("Edited env: ", envEdited)
 
 	out, err := yaml.Marshal(mapResult)
 	// write the whole body at once
